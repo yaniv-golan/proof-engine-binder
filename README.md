@@ -9,7 +9,7 @@ Each proof in the main repo is published to Zenodo as a citable artifact. This r
 Proof pages emit a URL of the form:
 
 ```
-https://mybinder.org/v2/gh/yaniv-golan/proof-engine-binder/v1.21.0?urlpath=lab%2Ftree%2Flauncher.ipynb%23doi%3D10.5281%2Fzenodo.XXXXXXX
+https://mybinder.org/v2/gh/yaniv-golan/proof-engine-binder/v1.21.0?urlpath=lab%2Ftree%2Flauncher.ipynb%3Fdoi%3D10.5281%2Fzenodo.XXXXXXX
 ```
 
 The tag `v1.21.0` is immutable and pinned to proof-engine `v1.21.0`. Each proof-engine minor release gets its own launcher tag (`v1.22.0`, etc.), and published `binder_url` values in `doi.json` always reference a tag — never a branch. That way a proof minted under 1.21 continues to resolve to the exact same launcher image forever.
