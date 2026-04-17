@@ -8,6 +8,11 @@ intercepts every completed request, extracts a valid Zenodo DOI from ?doi=,
 and writes it to /tmp/binder_doi. The launcher widget reads that file on
 cell execution to pre-populate the DOI input.
 
+Hook strategy: we replace the Tornado Application's ``log_function`` in
+``web_app.settings``. That's the callable Tornado actually invokes at the
+end of every request; reassigning ``serverapp.log_request`` after startup
+does NOT work because Tornado has already captured the reference.
+
 DOI_FILE is intentionally in /tmp: volatile, user-scoped, no cleanup needed.
 """
 import re
@@ -32,15 +37,17 @@ def _capture_doi(handler):
 
 
 def _load_jupyter_server_extension(serverapp):
-    """Wrap serverapp.log_request so every completed request is inspected."""
-    original = serverapp.log_request
+    """Replace the Tornado log_function so every completed request is inspected."""
+    web_app = serverapp.web_app
+    original = web_app.settings.get("log_function")
 
     def wrapped(handler):
         _capture_doi(handler)
-        return original(handler)
+        if original is not None:
+            return original(handler)
 
-    serverapp.log_request = wrapped
-    serverapp.log.info("binder_doi_capture: request hook installed")
+    web_app.settings["log_function"] = wrapped
+    serverapp.log.info("binder_doi_capture: log_function hook installed")
 
 
 def _jupyter_server_extension_points():
