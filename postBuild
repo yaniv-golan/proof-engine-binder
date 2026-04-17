@@ -11,3 +11,19 @@ git clone --depth 1 --branch "${PROOF_ENGINE_TAG}" \
     "${HOME}/proof-engine"
 
 echo "Cloned proof-engine ${PROOF_ENGINE_TAG} to ${HOME}/proof-engine"
+
+# Install binder_doi_capture as a Jupyter Server extension.
+# Binder's redirect chain preserves ?doi= on the first server request but
+# JupyterLab strips it from the URL before client JS can read it. The
+# extension captures the DOI server-side and writes it to /tmp/binder_doi.
+USER_SITE="$(python -c 'import site; print(site.getusersitepackages())')"
+mkdir -p "${USER_SITE}"
+cp binder_doi_capture.py "${USER_SITE}/binder_doi_capture.py"
+
+CONFIG_DIR="${HOME}/.jupyter/jupyter_server_config.d"
+mkdir -p "${CONFIG_DIR}"
+cat > "${CONFIG_DIR}/binder_doi_capture.json" <<'JSON'
+{"ServerApp": {"jpserver_extensions": {"binder_doi_capture": true}}}
+JSON
+
+echo "Installed binder_doi_capture extension to ${USER_SITE}"
