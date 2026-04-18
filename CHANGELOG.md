@@ -2,6 +2,11 @@
 
 All notable changes to the proof-engine launcher are documented here.
 
+## [1.23.0] - 2026-04-18
+
+### Changed
+- **`postBuild` bumps `PROOF_ENGINE_TAG` to `v1.23.0`.** Companion to proof-engine v1.23.0 (SKILL.md restructure: gotchas regrouped under 7 subheadings, Step 2 mid-section extracted to `references/research-workflow.md`, function signatures extracted to `references/scripts-api.md`). No launcher behavior changes — this tag exists to satisfy the cross-tag invariant (BINDER_LAUNCHER_TAG in proof-engine derives from `vMAJOR.MINOR.0` only).
+
 ## [1.22.0] - 2026-04-18
 
 ### Added
