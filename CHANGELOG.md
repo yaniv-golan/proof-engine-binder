@@ -15,6 +15,9 @@ All notable changes to the proof-engine launcher are documented here.
 ### Migration
 - Companion to proof-engine v1.22.0 which emits `?slug=&ref=` URLs for unminted proofs. Published `doi.json` `binder_url` values continue to resolve (DOI path unchanged). A stale browser tab holding a Binder URL pointing at a pre-1.22.0 launcher image will fall back to the built-in example DOI rather than crash.
 
+### Post-tag fix (v1.22.0 force-moved 2026-04-18)
+- Cell 0's intro markdown was DOI-only ("re-runs the exact `proof.py` deposited to Zenodo") despite the underlying flow being dual-mode. Updated to describe both source paths (Zenodo for minted, GitHub raw + commit-SHA for unminted) and to point users at the correct re-verification path for each (`DOI_OVERRIDE` vs. clicking from the proof page). Tag `v1.22.0` was force-moved to the new commit because `BINDER_LAUNCHER_TAG` in the main repo derives from `vMAJOR.MINOR.0` only — within a minor we move the tag rather than patch-bump.
+
 ## [1.21.2] - 2026-04-18
 
 ### Changed
