@@ -12,6 +12,9 @@ All notable changes to the proof-engine launcher are documented here.
 ### Changed
 - **`postBuild` bumps `PROOF_ENGINE_TAG` to `v1.23.0`.** Companion to proof-engine v1.23.0 (SKILL.md restructure: gotchas regrouped under 7 subheadings, Step 2 mid-section extracted to `references/research-workflow.md`, function signatures extracted to `references/scripts-api.md`). No launcher behavior changes — this tag exists to satisfy the cross-tag invariant (BINDER_LAUNCHER_TAG in proof-engine derives from `vMAJOR.MINOR.0` only).
 
+### Post-tag fix (v1.23.0 force-moved 2026-04-18)
+- Tag `v1.23.0` was force-moved onto the same commit shipped as `v1.23.1` (cell 3 robustness fix — `captured` now assigned inside `finally`). Both tags now resolve to the same image. The force-move is required because `BINDER_LAUNCHER_TAG` in proof-engine derives from `vMAJOR.MINOR.0` only; without it, every site-published Binder URL would still pull the buggy pre-fix image. See [1.23.1] below for the actual fix.
+
 ## [1.22.0] - 2026-04-18
 
 ### Added
