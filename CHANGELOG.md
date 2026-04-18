@@ -2,6 +2,19 @@
 
 All notable changes to the proof-engine launcher are documented here.
 
+## [1.22.0] - 2026-04-18
+
+### Added
+- **Dual-mode capture: DOI and slug.** The server extension now captures both `?doi=<Zenodo DOI>` (existing minted-proof flow) and `?slug=<slug>&ref=<sha>` (new unminted-proof flow) on incoming requests. Slug mode fetches `proof.py` from `raw.githubusercontent.com/yaniv-golan/proof-engine/<sha>/site/proofs/<slug>/proof.py` — the trust anchor is the commit SHA embedded in the URL, so the executed bytes match the bytes rendered in "View proof source" on the proof's page at that commit. Enables one-click re-execution for the ~53 published proofs that have no DOI yet.
+- Launcher notebook cells 1, 2, and 4 branch on `MODE ∈ {"doi", "slug"}`. Cell 2 exports a single `proof_script_name` variable so cell 3 no longer references mode-specific locals. Cell 4's back-link resolves via `doi-index.json` in DOI mode or directly from the captured slug in slug mode, and reports the pinned commit short-SHA instead of a Zenodo link.
+
+### Changed
+- **Extension renamed: `binder_doi_capture` → `binder_capture`.** Module, Python file, and the Jupyter Server extension JSON config all rename in lockstep. DOI regex unchanged; new validators: slug `^[a-z0-9-]{1,80}$`, ref `^[0-9a-f]{7,40}$`. DOI takes precedence if both query parameters are present on the same request.
+- **`postBuild` bumps `PROOF_ENGINE_TAG` to `v1.22.0`.** The cloned `proof-engine` repo in the image now matches this launcher's minor version.
+
+### Migration
+- Companion to proof-engine v1.22.0 which emits `?slug=&ref=` URLs for unminted proofs. Published `doi.json` `binder_url` values continue to resolve (DOI path unchanged). A stale browser tab holding a Binder URL pointing at a pre-1.22.0 launcher image will fall back to the built-in example DOI rather than crash.
+
 ## [1.21.2] - 2026-04-18
 
 ### Changed
