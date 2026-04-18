@@ -2,6 +2,11 @@
 
 All notable changes to the proof-engine launcher are documented here.
 
+## [1.24.0] - 2026-04-19
+
+### Changed
+- **`postBuild` bumps `PROOF_ENGINE_TAG` to `v1.24.0`.** Companion to proof-engine v1.24.0 (`prove_holds()` theorem-mode verdict helper + proofengine.info migration + skim guide + Binder deps note + numpy scalar coercion). No launcher behavior changes — this tag exists to satisfy the cross-tag invariant (BINDER_LAUNCHER_TAG in proof-engine derives from `vMAJOR.MINOR.0` only, so every proof-engine minor release needs a matching launcher tag).
+
 ## [1.23.1] - 2026-04-18
 
 ### Fixed
