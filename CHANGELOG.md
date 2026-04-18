@@ -2,6 +2,11 @@
 
 All notable changes to the proof-engine launcher are documented here.
 
+## [1.23.1] - 2026-04-18
+
+### Fixed
+- **Cell 3 robustness: `captured` is now assigned inside the `finally` block** (and pre-initialised to `""` before the `try`). Previously, if `exec(proof_text)` raised, `captured = proof_output.getvalue()` was unreachable — the user then saw cell 4 fail with an unhelpful `NameError: name 'captured' is not defined` that buried whatever the actual proof failure was. The exception still propagates from cell 3 (so Jupyter halts the run-all chain at the real error), but if the user manually re-runs cell 4 after a cell 3 failure, the partial output is now available and cell 4 falls through to "Verdict: UNKNOWN" instead of erroring. Surfaced by Playwright-driven smoke testing of v1.23.0.
+
 ## [1.23.0] - 2026-04-18
 
 ### Changed
