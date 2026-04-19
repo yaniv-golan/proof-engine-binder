@@ -2,6 +2,11 @@
 
 All notable changes to the proof-engine launcher are documented here.
 
+## [1.25.0] - 2026-04-19
+
+### Changed
+- **`postBuild` bumps `PROOF_ENGINE_TAG` to `v1.25.0`.** Companion to proof-engine v1.25.0 (canonical `/proofs/` hub URL + permanent `/catalog/` redirect shim + branded 404 page + `/search-index.json` + reserved-slug guard). No launcher behavior changes — this tag exists to satisfy the cross-tag invariant (BINDER_LAUNCHER_TAG in proof-engine derives from `vMAJOR.MINOR.0` only, so every proof-engine minor release needs a matching launcher tag).
+
 ## [1.24.0] - 2026-04-19
 
 ### Changed

@@ -2,9 +2,9 @@
 set -euo pipefail
 
 # Clone proof-engine at the tag matching this launcher's minor version.
-# This launcher release (tag v1.24.0) is paired with proof-engine v1.24.0.
+# This launcher release (tag v1.25.0) is paired with proof-engine v1.25.0.
 # Every launcher tag pins its own proof-engine tag; never use a moving ref here.
-PROOF_ENGINE_TAG="v1.24.0"
+PROOF_ENGINE_TAG="v1.25.0"
 
 git clone --depth 1 --branch "${PROOF_ENGINE_TAG}" \
     https://github.com/yaniv-golan/proof-engine.git \
