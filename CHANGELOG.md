@@ -2,6 +2,11 @@
 
 All notable changes to the proof-engine launcher are documented here.
 
+## [1.40.0] - 2026-05-21
+
+### Changed
+- **`postBuild` bumps `PROOF_ENGINE_TAG` to `v1.40.0`.** Companion to proof-engine v1.40.0 (`verify_citation(..., expected_metadata=...)` integrated quote-on-page + metadata-chimera check; deterministic `metadata_result` key in the return dict; `verify_all_citations` batch parity; skill docs gain "Beyond the bundled scripts" pointer to the v1.35+ APIs). No launcher behavior changes — this tag exists to satisfy the cross-tag invariant (BINDER_LAUNCHER_TAG in proof-engine derives from `vMAJOR.MINOR.0` only, so every proof-engine minor release needs a matching launcher tag).
+
 ## [1.39.0] - 2026-05-21
 
 ### Changed
