@@ -2,6 +2,11 @@
 
 All notable changes to the proof-engine launcher are documented here.
 
+## [1.38.0] - 2026-05-20
+
+### Changed
+- **`postBuild` bumps `PROOF_ENGINE_TAG` to `v1.38.0`.** Companion to proof-engine v1.38.0 (`tools/lib/reference_resolver.py` renamed to `tools/lib/proof_cache.py` to reflect that the heavy-lifting registry backends moved into `proof_citations.registry` in v1.37.0 and what remains in `tools/lib` is the site's on-disk cache and publish-pipeline glue). No launcher behavior changes — this tag exists to satisfy the cross-tag invariant (BINDER_LAUNCHER_TAG in proof-engine derives from `vMAJOR.MINOR.0` only, so every proof-engine minor release needs a matching launcher tag).
+
 ## [1.37.0] - 2026-05-20
 
 ### Changed
