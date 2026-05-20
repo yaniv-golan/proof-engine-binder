@@ -2,6 +2,11 @@
 
 All notable changes to the proof-engine launcher are documented here.
 
+## [1.37.0] - 2026-05-20
+
+### Changed
+- **`postBuild` bumps `PROOF_ENGINE_TAG` to `v1.37.0`.** Companion to proof-engine v1.37.0 (registry backends consolidated into `proof_citations.registry` — Crossref, DataCite, arXiv, Open Library, Software Heritage, Handle, OG-extraction URL backends moved out of `tools/lib/reference_resolver.py` into the pip-installable package; the latter becomes a thin translation shim preserving the legacy `ResolvedReference` shape for the 132 committed `depends_on_resolved.json` caches). No launcher behavior changes — this tag exists to satisfy the cross-tag invariant (BINDER_LAUNCHER_TAG in proof-engine derives from `vMAJOR.MINOR.0` only, so every proof-engine minor release needs a matching launcher tag).
+
 ## [1.36.0] - 2026-05-20
 
 ### Changed
