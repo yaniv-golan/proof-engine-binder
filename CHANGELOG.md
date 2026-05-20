@@ -2,6 +2,14 @@
 
 All notable changes to the proof-engine launcher are documented here.
 
+## [1.34.0] - 2026-05-20
+
+### Changed
+- **`postBuild` bumps `PROOF_ENGINE_TAG` to `v1.34.0`.** Companion to proof-engine v1.34.0 (deductive-theorem proof type with grader subagent, attribution-first framing for re-exposed results via `CLAIM_FORMAL.attribution`, `CLAIM_FORMAL.purpose` field declaring artifact value-proposition, proof regeneration pipeline, `proof-citations` declared as runtime skill dependency, DOI on embedded JSON-LD `Dataset`, `/sitemap_index.xml` for Google Search Console, three new proofs). No launcher behavior changes — this tag exists to satisfy the cross-tag invariant (BINDER_LAUNCHER_TAG in proof-engine derives from `vMAJOR.MINOR.0` only, so every proof-engine minor release needs a matching launcher tag).
+
+### Note on intermediate proof-engine releases
+- proof-engine shipped v1.26.0 through v1.33.x without companion launcher tags during a period when this repo wasn't being tagged in lockstep. Sites built against those proof-engine versions emit Binder URLs pointing at non-existent launcher tags (`v1.27.0`, `v1.28.0`, …, `v1.33.0`); those URLs are already in the wild and click-broken. This v1.34.0 tag restores the invariant going forward. The gap is not backfilled here because the v1.25.0 launcher image pins `PROOF_ENGINE_TAG="v1.25.0"` and would not run proofs published against later proof-engine versions correctly.
+
 ## [1.25.0] - 2026-04-19
 
 ### Changed
