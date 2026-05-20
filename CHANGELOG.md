@@ -2,6 +2,11 @@
 
 All notable changes to the proof-engine launcher are documented here.
 
+## [1.39.0] - 2026-05-21
+
+### Changed
+- **`postBuild` bumps `PROOF_ENGINE_TAG` to `v1.39.0`.** Companion to proof-engine v1.39.0 (`proof_citations.registry` submodule renamed to `proof_citations.resolvers` to resolve the naming collision with the unrelated Registry Protocol; comprehensive doc update covering the v1.35.0–v1.39.0 public surface in the `proof-citations` package README). No launcher behavior changes — this tag exists to satisfy the cross-tag invariant (BINDER_LAUNCHER_TAG in proof-engine derives from `vMAJOR.MINOR.0` only, so every proof-engine minor release needs a matching launcher tag).
+
 ## [1.38.0] - 2026-05-20
 
 ### Changed
