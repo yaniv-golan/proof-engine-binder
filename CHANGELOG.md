@@ -2,6 +2,11 @@
 
 All notable changes to the proof-engine launcher are documented here.
 
+## [1.36.0] - 2026-05-20
+
+### Changed
+- **`postBuild` bumps `PROOF_ENGINE_TAG` to `v1.36.0`.** Companion to proof-engine v1.36.0 (metadata-chimera detection: `compare_metadata` primitive comparing claimed bibliographic fields against a `ResolvedRecord`, `verify_citation_record` high-level orchestrator combining identifier resolution + comparison, `proof-citations verify-records` batch-audit CLI, bundled NLM-ISO journal abbreviation table). No launcher behavior changes — this tag exists to satisfy the cross-tag invariant (BINDER_LAUNCHER_TAG in proof-engine derives from `vMAJOR.MINOR.0` only, so every proof-engine minor release needs a matching launcher tag).
+
 ## [1.35.0] - 2026-05-20
 
 ### Changed
