@@ -2,6 +2,11 @@
 
 All notable changes to the proof-engine launcher are documented here.
 
+## [1.35.0] - 2026-05-20
+
+### Changed
+- **`postBuild` bumps `PROOF_ENGINE_TAG` to `v1.35.0`.** Companion to proof-engine v1.35.0 (citation registry layer + PubMed/NCBI E-utilities backend, `proof_citations.ResolvedRecord` canonical bibliographic record, `proof_citations.identify` typed identifier extraction, structured `Author` records, `Cache` protocol with `InMemoryCache` and `FileCache` defaults, polite HTTP session, `ResolutionError` with structured failure kinds). No launcher behavior changes — this tag exists to satisfy the cross-tag invariant (BINDER_LAUNCHER_TAG in proof-engine derives from `vMAJOR.MINOR.0` only, so every proof-engine minor release needs a matching launcher tag).
+
 ## [1.34.0] - 2026-05-20
 
 ### Changed
