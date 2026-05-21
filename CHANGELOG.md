@@ -2,6 +2,11 @@
 
 All notable changes to the proof-engine launcher are documented here.
 
+## [1.41.0] - 2026-05-21
+
+### Changed
+- **`postBuild` bumps `PROOF_ENGINE_TAG` to `v1.41.0`.** Companion to proof-engine v1.41.0 (first-class PMC identifier support: `proof_citations.resolvers.pubmed.resolve_pmc` via E-utilities `db=pmc` with best-effort pmid-cross-ref enrichment; `pmc` added to `meta.yaml depends_on` allowed types in `tools/lib/depends_on.py`; parallel dispatch updates in `tools/lib/citation.py`, `tools/lib/zenodo_metadata.py`, `tools/lib/cite_expander.py`, `tools/lib/proof_cache.py`, and `tools/build-site.py`). No launcher behavior changes — this tag exists to satisfy the cross-tag invariant (BINDER_LAUNCHER_TAG in proof-engine derives from `vMAJOR.MINOR.0` only, so every proof-engine minor release needs a matching launcher tag).
+
 ## [1.40.0] - 2026-05-21
 
 ### Changed
